@@ -1,0 +1,22 @@
+package leetcode.no70;
+
+public class ClimingStairSolved {
+	public int climStairs(int numbers) {
+		if (numbers == 0)
+			return 0;
+		if (numbers == 1)
+			return 1;
+		if (numbers == 2)
+			return 2;
+
+		int[] steps = new int[numbers + 1];
+		steps[0] = 0;
+		steps[1] = 1;
+		steps[2] = 2;
+
+		for (int i = 3; i < numbers + 1; i++) {
+			steps[i] = steps[i - 1] + steps[i - 2];
+		}
+		return steps[numbers];
+	}
+}
